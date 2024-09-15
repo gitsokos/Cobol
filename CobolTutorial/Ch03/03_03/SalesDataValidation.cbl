@@ -204,7 +204,14 @@
                MOVE INVALID-REGION TO DET-ERROR-MSG
                WRITE PRINT-LINE FROM DETAIL-LINE AFTER
                   ADVANCING 1 LINE.
-            
+           IF REGION = 'EAST' OR 'WEST' OR 'NORTH' OR 'SOUTH'
+               NEXT SENTENCE
+           ELSE
+               MOVE 'NO' TO VALID-RECORD-SWITCH
+               MOVE INVALID-REGION TO DET-ERROR-MSG
+               WRITE PRINT-LINE FROM DETAIL-LINE AFTER
+                  ADVANCING 1 LINE
+           END-IF.
                
         0175-VALIDATE-SALES.
             IF YEARLYSALES NOT NUMERIC 
